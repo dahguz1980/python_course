@@ -29,7 +29,11 @@ result = subprocess.run(activate_command, shell=True)
 print(result)
 
 # Actualizar pip dentro del entorno virtual
-pip_command = os.path.join(virtualenv_path, "bin", "pip")
+if is_windows:
+    pip_command = os.path.join(virtualenv_path, "Scripts", "pip.exe")
+else:
+    pip_command = os.path.join(virtualenv_path, "bin", "pip")
+
 subprocess.run([pip_command, "install", "--upgrade", "pip"], check=True)
 
 # Instalar dependencias en el entorno virtual desde requirements.txt
