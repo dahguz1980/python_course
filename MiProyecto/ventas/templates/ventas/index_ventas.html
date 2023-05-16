@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ventas
+{% endblock title %}
+
+{% block content %}
+    {% for venta in ventas %}  
+        <h2>Nombre Cliente: {{venta.cliente}}</h2>
+        <p>Producto y Precio: {{venta.producto}}</p>
+        <p>cantidad: {{venta.cantidad}}</p>
+    {% endfor %}
+
+    <a href="{% url 'index' %}">Volver</a>
+{% endblock content %}
+    
