@@ -45,4 +45,7 @@ project_directory = os.path.join(
 
 # Ejecutar el servidor Django
 manage_py_path = os.path.join(project_directory, "manage.py")
-subprocess.run(["python3", manage_py_path, "runserver"], check=True)
+if is_windows:
+    subprocess.run(["python", manage_py_path, "runserver"], check=True)
+else:
+    subprocess.run(["python3", manage_py_path, "runserver"], check=True)
