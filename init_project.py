@@ -1,7 +1,10 @@
 import os
 import subprocess
 import platform
-
+import urllib.parse
+import urllib.request
+import json
+import time
 
 # Ruta al directorio del entorno virtual
 virtualenv_path = "entorno_virtual"
@@ -42,3 +45,23 @@ else:
     pip_command = os.path.join(virtualenv_path, "bin", "pip")
     subprocess.run([pip_command, "install", "--upgrade", "pip"], check=True)
     subprocess.run([pip_command, "install", "-r", "requirements.txt"], check=True)
+
+
+# Obtener la ruta absoluta al directorio del script actual
+script_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Construir la ruta relativa al proyecto Django
+project_directory = os.path.join(
+    script_directory, "MiProyecto"
+)  # Reemplaza "ruta_relativa_al_proyecto" con la ruta relativa a tu proyecto Django
+
+# Sync Models
+manage_py_path = os.path.join(project_directory, "manage.py")
+if is_windows:
+    process = subprocess.run(
+        [pip_command, manage_py_path, "makemigrations"], check=True
+    )
+    process = subprocess.run([pip_command, manage_py_path, "migrate"], check=True)
+else:
+    process = subprocess.run(["python3", manage_py_path, "makemigrations"], check=True)
+    process = subprocess.run(["python3", manage_py_path, "migrate"], check=True)
