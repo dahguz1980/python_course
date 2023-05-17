@@ -18,4 +18,6 @@ class Venta(models.Model):
     cantidad = models.IntegerField()
 
     def __str__(self):
-        return self.cliente + " " + self.producto + " " + str(self.cantidad)
+        return (
+            self.cliente.nombre + " " + self.producto.nombre + " " + str(self.cantidad)
+        )
