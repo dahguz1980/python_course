@@ -1,0 +1,16 @@
+{% extends 'producto/index.html' %}
+
+{% block content_producto %}
+
+    <h2>Eliminación de Categoría de Productos</h2>
+
+    <p>¿Confirmas eliminar "{{ object }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+
+    <a href="{% url 'producto:index' %}">Volver a índice de Producto</a>
+
+{% endblock content_producto %}

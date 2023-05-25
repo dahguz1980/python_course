@@ -1,8 +1,12 @@
-# coderhouse
+# Índice
 
-## Clase 19 
+Para ver este archivo en Visual Studio Code con mayor legibilidad, presionar `control + shift + v`
 
-Vamos a ver cómo usar herencia de plantillas.
+- [Configuración de Visual Studio Code](docs/VSCode.__Configuracion)
+- [Creación de un proyecto y aplicación](docs/Proyecto.__Creacion.md)
+- [Modelos: Tipos de datos](docs/Modelos.__Tipos_de_datos.md)
+- [Modelos: Filtros de consultas](docs/Modelos.__Filtros.md)
 
-Ejecutar el init_project.py, para que se cree el entorno virtual y se descarguen las dependencias de forma automática. 
-Luego pueden inciar el servidor.
+Para indentar todos los archivos HTML:
+
+`python project/indentar.py`
