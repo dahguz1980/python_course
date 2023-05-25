@@ -1,0 +1,16 @@
+{% extends 'producto/index.html' %}
+
+{% block content_producto %}
+
+    <h2>Lista de Productos</h2>
+    <ul>
+        <li>
+            <p><strong>Nombre:</strong> {{ object.nombre }}</p>
+            <p><strong>Precio</strong> {{ object.precio }}</p>
+            <p><strong>Categoria</strong> {{ object.productocategoria_id }}</p>
+        </li>
+    </ul>
+
+    <a href="{% url 'producto:producto_list' %}">Volver a lista de Producto</a>
+
+{% endblock content_producto %}

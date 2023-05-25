@@ -21,6 +21,10 @@ class ProductoCategoriaList(ListView):
     model = models.ProductoCategoria
 
 
+class ProductoList(ListView):
+    model = models.Producto
+
+
 # def producto_categoria_create(request):
 #     if request.method == "POST":
 #         form = forms.ProductoCategoriaForm(request.POST)
@@ -35,7 +39,13 @@ class ProductoCategoriaList(ListView):
 class ProductoCategoriaCreate(CreateView):
     model = models.ProductoCategoria
     form_class = forms.ProductoCategoriaForm
-    success_url = reverse_lazy("producto:index")
+    success_url = reverse_lazy("producto:productocategoria_list")
+
+
+class ProductoCreate(CreateView):
+    model = models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
 
 
 # def producto_categoria_delete(request, id):
@@ -49,6 +59,10 @@ class ProductoCategoriaCreate(CreateView):
 class ProductoCategoriaDelete(DeleteView):
     model = models.ProductoCategoria
     success_url = reverse_lazy("producto:productocategoria_list")
+
+class ProductoDelete(DeleteView):
+    model = models.Producto
+    success_url = reverse_lazy("producto:producto_list")
 
 
 # def producto_categoria_update(request, id):
@@ -71,3 +85,11 @@ class ProductoCategoriaUpdate(UpdateView):
 
 class ProductoCategoriaDetail(DetailView):
     model = models.ProductoCategoria
+
+class ProductoUpdate(UpdateView):
+    model = models.Producto
+    success_url = reverse_lazy("producto:producto_list")
+    form_class = forms.ProductoForm
+
+class ProductoDetail(DetailView):
+    model = models.Producto
